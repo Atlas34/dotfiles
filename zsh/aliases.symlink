@@ -4,9 +4,8 @@ alias tmux="tmux -2" # added to get the right color for vim under tmux
 alias ll="ls -la"
 
 ##### Archlinux
-alias pclean="pkg2remove=`pacman -Qdtq` ; if [ "$pkg2remove" = "" ] ; then echo 'No package orphan' ; else sudo pacman -Rsn \$(pacman -Qdtq) ; fi"
 alias UpdateMirrors="sudo reflector  -c 'France' -f 12 -l 12 -n 12 --verbose --save /etc/pacman.d/mirrorlist"
-alias CleanAll="sudo cacheclean -v 1"
+alias pclean="sudo cacheclean -v 1"
 
 ##### Docker aliases #####
 alias du="boot2docker start"
