@@ -1,0 +1,117 @@
+
+# -- general -------------------------------------------------------------------
+
+# tmux display things in 256 colors
+set -g default-terminal "screen-256color"
+setw -g xterm-keys on
+set -s escape-time 0                      # fastest command sequences
+set -sg repeat-time 600                   # increase repeat timeout
+
+set -g history-limit 30000				  # boost history
+
+######################
+#### Key Bindings ####
+######################
+
+# reload config file
+bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
+
+# unbind default prefix and set it to Ctrl+a
+unbind C-b
+set -g prefix C-a
+bind C-a send-prefix
+
+# for nested tmux sessions
+bind-key a send-prefix
+
+# Rather than constraining window size to the maximum size of any client
+# connected to the *session*, constrain window size to the maximum size of any
+# client connected to *that window*. Much more reasonable.
+setw -g aggressive-resize on
+
+# split window and fix path for tmux 1.9
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
+
+# synchronize all panes in a window
+bind y setw synchronize-panes
+
+# enable mouse support for switching panes/windows
+# NOTE: This breaks selecting/copying text on OSX
+# To select text as expected, hold Option to disable it (iTerm2)
+set -g mouse on
+
+# maximizing and restoring windows
+unbind Up
+bind Up new-window -d -n fullscreen \; swap-pane -s fullscreen.1 \; select-window -t fullscreen
+unbind Down
+bind Down last-window \; swap-pane -s fullscreen.1 \; kill-window -t fullscreen
+
+# -- display -------------------------------------------------------------------
+
+set -g base-index 1         # start windows numbering at 1
+setw -g pane-base-index 1   # make pane numbering consistent with windows
+
+# renumber windows when a window is closed
+set -g renumber-windows on
+setw -g automatic-rename on # rename window to reflect current program
+
+set -g display-panes-time 800 # slightly longer pane indicators display time
+set -g display-time 1000      # slightly longer status messages display time
+
+set -g status-interval 10     # redraw status line every 10 seconds
+
+# 24 hour clock
+setw -g clock-mode-style 24
+
+# Activity Monitoring
+setw -g monitor-activity on
+set -g visual-activity off
+
+# -- navigation ----------------------------------------------------------------
+
+# create new session
+bind C-c new-session
+
+# find session
+bind C-f command-prompt -p find-session 'switch-client -t %%'
+
+# pane navigation
+bind -r h select-pane -L  # move left
+bind -r j select-pane -D  # move down
+bind -r k select-pane -U  # move up
+bind -r l select-pane -R  # move right
+bind > swap-pane -D       # swap current pane with the next one
+bind < swap-pane -U       # swap current pane with the previous one
+
+# Resize pane shortcuts
+bind -r H resize-pane -L 10
+bind -r J resize-pane -D 10
+bind -r K resize-pane -U 10
+bind -r L resize-pane -R 10
+
+# window navigation
+bind -r C-h previous-window # select previous window
+bind -r C-l next-window     # select next window
+bind Space last-window      # move to last active window
+
+# -- copy mode -----------------------------------------------------------------
+
+# set vi mode for copy mode
+setw -g mode-keys vi
+# more settings to make copy-mode more vim-like
+unbind [
+bind Escape copy-mode
+unbind p
+bind p paste-buffer
+
+# -- Theme -----------------------------------------------------------------
+
+source ~/.tmux/themes/theme.sh
+
+# -- Plugins -----------------------------------------------------------------
+
+
+# -- user defined --------------------------------------------------------------
+
+if '[ -f ~/.tmux.conf.local ]' 'source ~/.tmux.conf.local'
