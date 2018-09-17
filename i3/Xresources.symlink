@@ -1,0 +1,88 @@
+! ===================
+!       urxvt
+! ===================
+
+URxvt*scrollBar:	    false
+URxvt*letterSpace:  	-1
+URxvt*depth:  	        32
+URxvt.internalBorder:   10
+URxvt*font: 		    xft:Droid Sans Mono for Powerline:regular:size=11
+URxvt*boldFont:		    xft:Droid Sans Mono for Powerline:bold:size=11
+URxvt*cursorBlink:      true
+URxvt.iso14755:		    false
+URxvt*utf8:			    true
+URxvt.keysym.C-plus:    resize-font:bigger
+URxvt.keysym.C-minus:   resize-font:smaller
+
+! =================
+!       Xft
+! =================
+Xft.dpi:          	    96
+Xft.antialias:     	    true
+Xft.rgba:			    subpixel
+Xft.hinting:       	    true
+Xft.hintstyle:		    hintslight
+
+! =================
+!   Colours
+! =================
+
+#define backgnd      [80]#16181A
+#define foregnd      #e2e9e4
+#define cursor       #e2e9e4
+#define active       #e1bb08
+
+#define black        #131313
+#define blackLight   #373b41
+#define red          #ca3232
+#define redLight     #f52323
+#define green        #14a727
+#define greenLight   #12d32d
+#define yellow       #e1bb08
+#define yellowLight  #fae93f
+#define blue         #29618e
+#define blueLight    #468bc4
+#define magenta      #803998
+#define magentaLight #b64bd6
+#define cyan         #0ccfb6
+#define cyanLight    #06fddb
+#define white        #ededed
+#define whiteLight   #fbfbfb
+
+! special
+*.foreground:    foregnd
+*.background:    backgnd
+*.cursorColor:   cursor
+
+! black
+*.color0:        black
+*.color8:        blackLight
+
+! red
+*.color1:        red
+*.color9:        redLight
+
+! green
+*.color2:        green
+*.color10:       greenLight
+
+! yellow
+*.color3:        yellow
+*.color11:       yellowLight
+
+! blue
+*.color4:        blue
+*.color12:       blueLight
+
+! magenta
+*.color5:        magenta
+*.color13:       magentaLight
+
+! cyan
+*.color6:        cyan
+*.color14:       cyanLight
+
+! white
+*.color7:        white
+*.color15:       whiteLight
+
