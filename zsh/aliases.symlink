@@ -6,6 +6,7 @@ alias ll="ls -la"
 ##### Archlinux
 alias UpdateMirrors="sudo reflector  -c 'France' -f 12 -l 12 -n 12 --verbose --save /etc/pacman.d/mirrorlist"
 alias pclean="sudo cacheclean -v 1"
+alias UpdateResources="xrdb ~/.XResources"
 
 ##### Docker aliases #####
 alias du="boot2docker start"
