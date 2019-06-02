@@ -49,16 +49,14 @@ set -g status-right-length 150
 set -g status-interval 5
 
 # pane border
-set-option -g pane-border-fg $TM_BLACKPHOENIX_PANEL_BORDER_FG
-set-option -g pane-active-border-fg $TM_BLACKPHOENIX_PANEL_BORDER_ACTIVE_FG
+set-option -g pane-border-style fg=$TM_BLACKPHOENIX_PANEL_BORDER_FG
+set-option -g pane-active-border-style fg=$TM_BLACKPHOENIX_PANEL_BORDER_ACTIVE_FG
 
 # message text
-set-option -g message-bg $TM_BLACKPHOENIX_MESSAGE_BG
-set-option -g message-fg $TM_BLACKPHOENIX_MESSAGE_FG
+set-option -g message-style bg=$TM_BLACKPHOENIX_MESSAGE_BG,fg=$TM_BLACKPHOENIX_MESSAGE_FG
 
 # command text
-set-option -g message-command-bg $TM_BLACKPHOENIX_COMMAND_BG
-set-option -g message-command-fg $TM_BLACKPHOENIX_COMMAND_FG
+set-option -g message-command-style bg=$TM_BLACKPHOENIX_COMMAND_BG,fg=$TM_BLACKPHOENIX_COMMAND_FG
 
 # pane number display
 set-option -g display-panes-active-colour $tm_color_active
@@ -78,17 +76,13 @@ set -g status-right $TM_BLACKPHOENIX_CLOCK
 
 # default statusbar colors
 # set-option -g status-bg colour0
-set-option -g status-fg $TM_BLACKPHOENIX_STATUS_FG
-set-option -g status-bg $TM_BLACKPHOENIX_STATUS_BG
-set-option -g status-attr default
+set-option -g status-style fg=$TM_BLACKPHOENIX_STATUS_FG,bg=$TM_BLACKPHOENIX_STATUS_BG,default
 
 # default window title colors
-set-window-option -g window-status-fg $TM_BLACKPHOENIX_WINDOW_STATUS_FG
-set-window-option -g window-status-bg $TM_BLACKPHOENIX_WINDOW_STATUS_BG
+set-window-option -g window-status-style fg=$TM_BLACKPHOENIX_WINDOW_STATUS_FG,bg=$TM_BLACKPHOENIX_WINDOW_STATUS_BG
 set -g window-status-format "#I $TM_BLACKPHOENIX_SEPARATOR_RIGHT_THIN #W"
 
 # active window title colors
-set-window-option -g window-status-current-fg $TM_BLACKPHOENIX_ACTIVE_WINDOW_STATUS_FG
-set-window-option -g window-status-current-bg $TM_BLACKPHOENIX_ACTIVE_WINDOW_STATUS_BG
+set-window-option -g window-status-current-style fg=$TM_BLACKPHOENIX_ACTIVE_WINDOW_STATUS_FG,bg=$TM_BLACKPHOENIX_ACTIVE_WINDOW_STATUS_BG
 set-window-option -g window-status-current-format "#[fg=$TM_BLACKPHOENIX_WINDOW_STATUS_BG]$TM_BLACKPHOENIX_SEPARATOR_RIGHT_BOLD#[fg=$TM_BLACKPHOENIX_ACTIVE_WINDOW_STATUS_FG,bold] #I $TM_BLACKPHOENIX_SEPARATOR_RIGHT_THIN #W #[fg=$TM_BLACKPHOENIX_ACTIVE_WINDOW_STATUS_BG,bg=$TM_BLACKPHOENIX_STATUS_BG,nobold]$TM_BLACKPHOENIX_SEPARATOR_RIGHT_BOLD"
 
